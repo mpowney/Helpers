@@ -1,3 +1,8 @@
+# Example usage:
+#  .\Export-ChildrenItems.ps1 | ConvertTo-Csv
+#  .\Export-ChildrenItems.ps1 | ConvertTo-Csv | Out-File .\files.csv
+#  .\Export-ChildrenItems.ps1 -Path C:\ | ConvertTo-Csv | Out-File .\files.csv
+
 Param (
     [string] $Filter,
     [string] $Path = $pwd
