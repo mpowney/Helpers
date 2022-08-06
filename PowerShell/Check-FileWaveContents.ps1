@@ -19,7 +19,7 @@ Function CheckFileWaveContents {
         | Where-Object { $false -eq $_.PSIsContainer } 
     $Children `
         | ForEach-Object {
-            [System.Object[]]$OutcomeJson = node ../Node/check-file-contents.mjs $_.FullName
+            [System.Object[]]$OutcomeJson = node (Join-Path $PSScriptRoot ../Node/check-file-contents.mjs) $_.FullName
 
             $Outcome = ConvertFrom-Json($OutcomeJson -join "")
             $Outcome | Select-Object -Property $EndProcessTimeField, filename, size, isWave, ext, mime
